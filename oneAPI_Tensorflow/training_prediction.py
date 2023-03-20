@@ -5,10 +5,7 @@ import pandas as pd
 import autokeras as ak
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-
-
-
-
+main_path = './oneAPI_Tensorflow'
 def data_selector(suffix, df_train, df_validation, df_test): 
     temp_train = df_train.loc[:, df_train.columns.str.endswith(suffix)]
     temp_validation = df_validation.loc[:, df_validation.columns.str.endswith(suffix)]
@@ -18,9 +15,9 @@ def data_selector(suffix, df_train, df_validation, df_test):
 
 def load_preprocess_data(test_data = None):
 
-    train=pd.read_csv('./Extracted Features/bert_audi_faci_training.csv')
-    validation=pd.read_csv('./Extracted Features/bert_audi_faci_validation.csv')
-    test=pd.read_csv('./Extracted Features/bert_audi_faci_test.csv')
+    train=pd.read_csv(main_path+'/Extracted Features/bert_audi_faci_training.csv')
+    validation=pd.read_csv(main_path+'/Extracted Features/bert_audi_faci_validation.csv')
+    test=pd.read_csv(main_path+'/Extracted Features/bert_audi_faci_test.csv')
 
     info_cols = ['video', 'number']
     dropcols = ['Unnamed: 0.1', 'ethnicity', 'gender', 'Unnamed: 0', 'video_name']
@@ -140,14 +137,14 @@ def training(number_of_trails = 10, epochs=50):
         total_model = model.export_model()
 
         # # Save current model
-        total_model.save('./Models/combined_trial_'+OCEAN_models[i])
+        total_model.save(main_path+'/Models/combined_trial_'+OCEAN_models[i])
         # Evaluate on validation set
         # try:
         #     evaluation = model.evaluate([ audio_data[1], facial_data[1]])
         # except:
         #     print("Error in evaluating")
         # # Write loss and error to a file
-        # with open('./combined_trial.txt', 'a') as f:
+        # with open(main_path+'/combined_trial.txt', 'a') as f:
         #     f.write('combined_trial'+' -> ')
         #     f.write(str(evaluation))
         #     f.write('\n')
@@ -157,29 +154,30 @@ def prediction():
     audio_data, facial_data, bert_data, training, validation = load_preprocess_data()
     OCEAN_models = ['Model_O', 'Model_C', 'Model_E', 'Model_A', 'Model_N']
     for i in range(5):
-        loaded_model = load_model("./Models/combined_trial_"+OCEAN_models[i], custom_objects=ak.CUSTOM_OBJECTS)
+        loaded_model = load_model(main_path+"/Models/combined_trial_"+OCEAN_models[i], custom_objects=ak.CUSTOM_OBJECTS)
         print(loaded_model.summary())
         eval = loaded_model.predict([audio_data[2],facial_data[2]])
         print(eval)
         df1 = pd.DataFrame(eval[0])
         df2 = pd.DataFrame(eval[1])
         df = pd.concat([df1,df2], axis = 1)
-        df.to_csv("./predictions/"+OCEAN_models[i]+".csv")
+        df.to_csv(main_path+"/predictions/"+OCEAN_models[i]+".csv")
         
 def predict_single_video(df_test, vid_name):
-    facial_data = df_test.loc[:, df_test.columns.str.endswith('faci')]
-    audio_data = df_test.loc[:, df_test.columns.str.endswith('audi')]
+    facial_data = np.asarray(df_test.loc[:, df_test.columns.str.endswith('faci')]).astype('float32')
+    audio_data = np.asarray(df_test.loc[:, df_test.columns.str.endswith('audi')]).astype('float32')
+    print(facial_data.shape)
+    print(audio_data.shape)
+
     OCEAN_models = ['Model_O', 'Model_C', 'Model_E', 'Model_A', 'Model_N']
     for i in range(5):
-        loaded_model = load_model("./Models/combined_trial_"+OCEAN_models[i], custom_objects=ak.CUSTOM_OBJECTS)
+        loaded_model = load_model(main_path+"/Models/combined_trial_"+OCEAN_models[i], custom_objects=ak.CUSTOM_OBJECTS)
         print(loaded_model.summary())
         eval = loaded_model.predict([audio_data,facial_data])
         print(eval)
         df1 = pd.DataFrame(eval[0])
         df2 = pd.DataFrame(eval[1])
         df = pd.concat([df1,df2], axis = 1)
-        df.to_csv("./predictions/"+vid_name+"_"+OCEAN_models[i]+".csv")
+        df.to_csv(main_path+"/predictions/"+vid_name+"_"+OCEAN_models[i]+".csv")
 
-if __name__ == '__main__':
-    prediction()
 

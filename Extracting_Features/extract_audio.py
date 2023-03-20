@@ -23,7 +23,7 @@ def extract_mfcc_features(video_path):
     audio_save_path = video_path.replace('video', 'video/audio')   
     audio_save_path = audio_save_path.replace('mov', 'wav')   
     try:
-        os.mkdir('../video/audio')
+        os.mkdir('./video/audio')
     except:
         print('Exists!!')
     print(audio_save_path)    
@@ -59,7 +59,7 @@ def extract_mfcc_features(video_path):
     columns.extend(cols)
     temp = pd.DataFrame(columns=columns, data=data)
     new_df = new_df.append(temp, ignore_index=True)
-    new_df.to_csv('../features/'+name+'_audio.csv')
+    new_df.to_csv('./features/'+name+'_audio.csv')
     return new_df
 
 

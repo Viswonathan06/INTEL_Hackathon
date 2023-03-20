@@ -1,6 +1,5 @@
 # coding: utf-8
-
-__author__ = 'cleardusk'
+os.environ["IMAGEIO_FFMPEG_EXE"] = "./audio-orchestrator-ffmpeg/bin/ffmpeg"
 
 import argparse
 import imageio, os
@@ -16,7 +15,6 @@ from utils.render import render
 # from utils.render_ctypes import render
 from itertools import islice, chain, repeat
 from utils.functions import cv_draw_landmark, get_suffix
-os.environ["IMAGEIO_FFMPEG_EXE"] = "/Users/viswonathanmanoranjan/audio-orchestrator-ffmpeg/bin/ffmpeg"
 _no_padding = object()
 
 def make_cols(feats = 204):
@@ -67,7 +65,7 @@ def main(args):
     fps =np.ceil(fps)
     # print('fps = ', fps)
     suffix = get_suffix(args.video_fp)
-    csv_path = f'../features/aggregate_'+vid_name+'_facial.csv'
+    csv_path = f'./features/aggregate_'+vid_name+'_facial.csv'
     if os.path.exists(csv_path):
         return
             # writer = imageio.get_# writer(video_wfp, fps=fps)

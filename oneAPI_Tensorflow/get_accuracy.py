@@ -3,11 +3,13 @@ import pandas as pd
 import os
 features = {'E':'EXTRAVERSION_Z', 'N':'NEGATIVEEMOTIONALITY_Z','A':'AGREEABLENESS_Z','C':'CONSCIENTIOUSNESS_Z','I':'interview','O':'OPENMINDEDNESS_Z'}
 
-def process_files(path = './predictions'):
+def process_files(path = './oneAPI_Tensorflow/predictions'):
     interview = pd.DataFrame()
     pred = pd.DataFrame()
     for files in os.listdir(path):
-        # print(files)
+        if '.DS_Store' in files:
+            continue
+        print(files)
         temp = pd.read_csv(os.path.join(path, files))
         # print(temp.columns)
         temp.drop('Unnamed: 0', inplace=True, axis = 1)
@@ -51,11 +53,11 @@ def calculate_accuracy(pred, ground_path = './Extracted Features/bert_audi_faci_
     
 
 
-# %%
-if __name__ == '__main__':
-    pred, interview = process_files()
-    final_pred = append_interview_value(interview, pred)
-    calculate_accuracy(final_pred)
+# # %%
+# if __name__ == '__main__':
+#     pred, interview = process_files()
+#     final_pred = append_interview_value(interview, pred)
+#     calculate_accuracy(final_pred)
 
 
 

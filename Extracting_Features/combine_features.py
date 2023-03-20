@@ -28,6 +28,6 @@ def aggregate_facial(path):
     print(agg_data)
     agg_df = pd.DataFrame(agg_data)
     agg_df.columns = cols
-    agg_df.to_csv("../features/"+vidname+'_facial.csv')
+    agg_df.to_csv("./features/"+vidname+'_facial.csv')
     return agg_df
 
