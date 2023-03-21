@@ -11,10 +11,10 @@ def process_files(path = './oneAPI_Tensorflow/predictions'):
             continue
         print(files)
         temp = pd.read_csv(os.path.join(path, files))
-        # print(temp.columns)
         temp.drop('Unnamed: 0', inplace=True, axis = 1)
+        print(temp.columns)
         interview = pd.concat([interview, temp.pop('0.1')], axis = 1)
-        OCEAN_val = files.split('.')[0].split('_')[1]
+        OCEAN_val = files.split('.')[0].split('_')[2]
         temp.columns = [features[OCEAN_val]]
         pred = pd.concat([pred, temp], axis = 1)
         # print(temp.head())
@@ -37,7 +37,8 @@ def append_interview_value(interview, pred):
     return pred
 
 # %%
-def calculate_accuracy(pred, ground_path = './Extracted Features/bert_audi_faci_test.csv'):
+def calculate_accuracy(pred, ground_path = './oneAPI_Tensorflow/Extracted Features/bert_audi_faci_test.csv'):
+    print(os.getcwd())
     ground = pd.read_csv(ground_path)
     # print(ground)
     cols = list(features.values())
@@ -54,10 +55,13 @@ def calculate_accuracy(pred, ground_path = './Extracted Features/bert_audi_faci_
 
 
 # # %%
-# if __name__ == '__main__':
-#     pred, interview = process_files()
-#     final_pred = append_interview_value(interview, pred)
-#     calculate_accuracy(final_pred)
+if __name__ == '__main__':
+    pred, interview = process_files()
+    final_pred = append_interview_value(interview, pred)
+    calculate_accuracy(final_pred)
 
 
 
+
+
+# %%

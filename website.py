@@ -28,7 +28,9 @@ def process_video():
 
     pred, interview = process_files()
     final_pred = append_interview_value(interview, pred)
-    print(final_pred.head())
+    # print(final_pred.head())
+    front_end_data = final_pred.to_dict()
+    print(front_end_data)
     # Get the total number of frames in the video
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
@@ -50,13 +52,14 @@ def process_video():
 
     # Return the results as a dictionary
     results = {
-        'total_frames': total_frames,
-        'fps': fps,
-        'width': width,
-        'height': height,
-        'duration': duration,
-        'bitrate': bitrate
+        'AGREEABLENESS_Z':  front_end_data['AGREEABLENESS_Z'],
+        'CONSCIENTIOUSNESS_Z': front_end_data['CONSCIENTIOUSNESS_Z'],
+        'EXTRAVERSION_Z': front_end_data['EXTRAVERSION_Z'],
+        'NEGATIVEEMOTIONALITY_Z': front_end_data['NEGATIVEEMOTIONALITY_Z'],
+        'OPENMINDEDNESS_Z': front_end_data['OPENMINDEDNESS_Z'],
+        'interview': front_end_data['interview']
     }
+
 
     return render_template('result.html', results=results)
 
