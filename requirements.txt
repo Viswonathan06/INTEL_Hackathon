@@ -1,5 +1,5 @@
-torch
-torchvision
+flask
+autokeras
 matplotlib
 numpy
 opencv-python # cv2
