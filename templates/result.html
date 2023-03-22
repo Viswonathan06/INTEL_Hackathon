@@ -2,16 +2,49 @@
 <html>
 <head>
     <title>Video Analysis Results</title>
+    <link rel="stylesheet" href="static\style.css">
+
 </head>        
 <body>
-    <h1>Video Analysis Results</h1>
-    <h3>{{ results }}</h3>
-
-    <p><strong>AGREEABLENESS_Z:</strong> {{ AGREEABLENESS_Z }}</p>
-    <p><strong>CONSCIENTIOUSNESS_Z:</strong> {{ CONSCIENTIOUSNESS_Z }}</p>
-    <p><strong>EXTRAVERSION_Z:</strong> {{ EXTRAVERSION_Z }}</p>
-    <p><strong>NEGATIVEEMOTIONALITY_Z:</strong> {{ NEGATIVEEMOTIONALITY_Z }} </p>
-    <p><strong>OPENMINDEDNESS_Z:</strong> {{ OPENMINDEDNESS_Z }} </p>
-    <p><strong>interview:</strong> {{interview}} </p>
+ <div class="card"><h1>Video Analysis Results</h1>
+    <table>
+        <tr>
+          <th>PERSONALITY TRAIT</th>
+          <th>VALUE(Range = 0-1)</th>
+        </tr>
+        <tr>
+          <td>AGREEABLENESS_Z</td>
+          <td>{{ results["AGREEABLENESS_Z"] }}</td>
+        </tr>
+        <tr>
+          <td>CONSCIENTIOUSNESS_Z</td>
+          <td>{{ results["CONSCIENTIOUSNESS_Z"] }}</td>
+        </tr>
+        <tr>
+          <td>EXTRAVERSION_Z</td>
+          <td>{{ results["EXTRAVERSION_Z"] }}</td>
+        </tr>
+        <tr>
+          <td>NEGATIVEEMOTIONALITY_Z</td>
+          <td> {{ results["NEGATIVEEMOTIONALITY_Z"] }}</td>
+        </tr>
+        <tr>
+          <td>OPENMINDEDNESS_Z</td>
+          <td>{{ results["OPENMINDEDNESS_Z"] }}</td>
+        </tr>
+        <tr>
+          <td>INTERVIEW</td>
+          <td>{{results["interview"]}}</td>
+        </tr>
+      </table>
+    </div>
+    <!-- <div class="card"><h1>Video Analysis Results</h1>
+        <p><strong>AGREEABLENESS_Z:</strong> {{ results["AGREEABLENESS_Z"] }}</p>
+        <p><strong>CONSCIENTIOUSNESS_Z:</strong> {{ results["CONSCIENTIOUSNESS_Z"] }}</p>
+        <p><strong>EXTRAVERSION_Z:</strong> {{ results["EXTRAVERSION_Z"] }}</p>
+        <p><strong>NEGATIVEEMOTIONALITY_Z:</strong> {{ results["NEGATIVEEMOTIONALITY_Z"] }} </p>
+        <p><strong>OPENMINDEDNESS_Z:</strong> {{ results["OPENMINDEDNESS_Z"] }} </p>
+        <p><strong>interview:</strong> {{results["interview"]}} </p></div> -->
+    
 </body>
 </html>

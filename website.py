@@ -52,14 +52,13 @@ def process_video():
 
     # Return the results as a dictionary
     results = {
-        'AGREEABLENESS_Z':  front_end_data['AGREEABLENESS_Z'],
-        'CONSCIENTIOUSNESS_Z': front_end_data['CONSCIENTIOUSNESS_Z'],
-        'EXTRAVERSION_Z': front_end_data['EXTRAVERSION_Z'],
-        'NEGATIVEEMOTIONALITY_Z': front_end_data['NEGATIVEEMOTIONALITY_Z'],
-        'OPENMINDEDNESS_Z': front_end_data['OPENMINDEDNESS_Z'],
-        'interview': front_end_data['interview']
+        'AGREEABLENESS_Z':  front_end_data['AGREEABLENESS_Z'][0],
+        'CONSCIENTIOUSNESS_Z': front_end_data['CONSCIENTIOUSNESS_Z'][0],
+        'EXTRAVERSION_Z': front_end_data['EXTRAVERSION_Z'][0],
+        'NEGATIVEEMOTIONALITY_Z': front_end_data['NEGATIVEEMOTIONALITY_Z'][0],
+        'OPENMINDEDNESS_Z': front_end_data['OPENMINDEDNESS_Z'][0],
+        'interview': front_end_data['interview'][0]
     }
-
 
     return render_template('result.html', results=results)
 

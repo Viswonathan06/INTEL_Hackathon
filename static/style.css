@@ -1,9 +1,66 @@
+/* Apply card styles to all body elements */
 body {
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+  border: 1px solid #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  background-color: #630e0e;
+}
+
+/* Add shadow effect to all button elements */
+/* button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #4CAF50;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+} */
+
+.card {
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  background-color: #22577A;
+  color: #fff;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #4CAF50;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Align all sections in the center of the screen */
+html, body {
+  height: 100%;
+}
+
+/* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+} */
   
   .container {
     max-width: 800px;
@@ -13,7 +70,7 @@ body {
   
   h1 {
     text-align: center;
-    color: #333;
+    color: #faf9f9;
   }
   
   form {
@@ -45,4 +102,29 @@ body {
   
   input[type="submit"]:hover {
     background-color: #555;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #ddd;
+    color: #333;
+  }
+  
+  tr:nth-child(even) td:first-child,
+  tr:nth-child(odd) td:last-child {
+    background-color: #621c55;
+  }
+  
+  tr:nth-child(odd) td:first-child,
+  tr:nth-child(even) td:last-child {
+    background-color: #320328;
   }
