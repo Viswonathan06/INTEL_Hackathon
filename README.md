@@ -55,9 +55,19 @@ The Flask server should start and be accessible at http://localhost:5050/
 ![Overall Design](./Design%20Drawings/High%20Level%20Design%20Block%20Diagram.jpeg)
 
 
+## System Overview 
 
+System 1 : 
 
+* MacBook Pro 14 inch 2021
+* Apple M1 Pro Chip - 8-core CPU, 16-core GPU
+* 16 GB RAM
 
+System 2 : 
+
+* Lenovo 14 inch
+* 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+* 16 GB RAM
 
 
 
