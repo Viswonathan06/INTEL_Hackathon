@@ -44,8 +44,11 @@ Our code is required a Linux ( preferably Ubuntu distribution ) to function with
     Step 5: After installation, clone the current directory and install the required modules to run the code smoothly.
 
 >```pip install -r requirements.txt```
+    
+    Step 6: Run the following command to run the build shell file for the 3DDFA_V2 facial feature extraction algorithm
+>```sh build.sh```
 
-    Step 6: Run the code through the following command 
+    Step 7: Run the code through the following command 
 >```python3 website.py```
 
 The Flask server should start and be accessible at http://localhost:5050/
