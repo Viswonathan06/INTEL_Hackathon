@@ -1,17 +1,18 @@
 flask
 autokeras
 matplotlib
-numpy
+numpy=1.23.5
 opencv-python # cv2
 imageio
 imageio-ffmpeg
 pyyaml # yaml
 tqdm
 argparse
-cython
+Cython
 scikit-image # skimage
 scipy
 onnxruntime
+onnx
 gradio
 librosa
 pandas
