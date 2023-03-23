@@ -3,7 +3,7 @@
 # **Interview Screening through Personality Detection**
 ## Introduction
 
-An automated personality recognition system can be helpful in various applications, such as recruitment, marketing, mental health diagnosis, and personalised content creation. By analysing language use and communication patterns, the system can identify personality traits and provide valuable insights into human behaviour without any human interaction, thus reducing the bias and probability of human error. 
+An automated personality recognition system can be helpful in various applications, such as recruitment, marketing, mental health diagnosis, and personalised content creation. By analysing facial features, language use and communication patterns, the system can identify personality traits and provide valuable insights into human behaviour without any human interaction, thus reducing the bias and probability of human error. 
 <br></br>
 
 ## Objective
