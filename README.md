@@ -48,11 +48,24 @@ Our code is required a Linux ( preferably Ubuntu distribution ) to function with
     Step 6: Run the following command to run the build shell file for the 3DDFA_V2 facial feature extraction algorithm
 >```sh build.sh```
 
-    Step 7: Run the code through the following command 
+    Step 7: The code only needs to be ran on one single file. This can be done in two ways: 
+>a. By running the notebook named ```website.ipynb``` **OR**<br></br>
+>b. Run the code through the following command <br>
 >```python3 website.py```
 
-The Flask server should start and be accessible at http://localhost:5050/
-<br></br>
+
+**The Flask server should start and be accessible at http://localhost:5050/**
+
+
+    Step 8 :On accessing the webpage, you will be prompted to choose a video of the participant you want to evaluate the personality for. 
+
+    Step 9: Choose the example video already present in the videos directory or move a video that you want to evaluate for. 
+
+**Note: The video has to be present in the videos directory for the application to function properly. Do not include 'video' in the video name.** 
+
+    Step 10: The webpage will now take a few seconds to evaluate and show you the OCEAN and 'interview' values. 
+<br></br> 
+
 
 ## Block Diagram 
 ![Overall Design](./Design%20Drawings/High%20Level%20Design%20Block%20Diagram.jpeg)
