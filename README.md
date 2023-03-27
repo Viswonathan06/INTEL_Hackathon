@@ -1,14 +1,9 @@
 # INTEL_Hackathon
 
 # **Interview Screening through Personality Detection**
-## Introduction
+## Introduction and Objective
 
-An automated personality recognition system can be helpful in various applications, such as recruitment, marketing, mental health diagnosis, and personalised content creation. By analysing facial features, language use and communication patterns, the system can identify personality traits and provide valuable insights into human behaviour without any human interaction, thus reducing the bias and probability of human error. 
-<br></br>
-
-## Objective
-
-We develop a **multi-task multi-modal system** for automated personality recognition, trained on **Intel® Optimization for Tensorflow** through the **oneAPI Intel® AI Analytics Toolkit**, that evaluates job applicants using facial landmarks, language, tone, and other communication characteristics. The system provides OCEAN personality values and the likelihood of passing to the interview stage, helping employers evaluate candidates objectively and efficiently. The system assesses the Big five personality traits and determines the probability of qualifying for the interview round, providing a comprehensive behavioral assessment of job applicants.
+An automated personality recognition system can be helpful in various applications, such as recruitment, marketing, mental health diagnosis, and personalised content creation. Given it's importance, we develop a **multi-task multi-modal system** for automated personality recognition, trained on **Intel® Optimization for Tensorflow** through the **oneAPI Intel® AI Analytics Toolkit**, that evaluates job applicants using facial landmarks, language, tone, and other communication characteristics. The system provides OCEAN personality values and the likelihood of passing to the interview stage, helping employers evaluate candidates objectively and efficiently. The system assesses the Big five personality traits and determines the probability of qualifying for the interview round, providing a comprehensive behavioral assessment of job applicants.
 <br></br>
 
 ## oneAPI Modules in-use
@@ -22,53 +17,27 @@ Optimized Tensorflow was used to train the Autokeras Multi-task Multi-modal mode
 Optimized PyTorch was used for facial landmark extraction through the **3DDFA V2 algorithm**.
 <br></br>
 
-## Installation
+## Evaluation
 
-Our code is required a Linux ( preferably Ubuntu distribution ) to function without making any changes. 
+We assume that the oneAPI Intel® AI Analytics Toolkit has been installed in your system. If so, the training and prediction modules will automatically use the Intel® Optimization for Tensorflow and Pytorch.
 
-    Step 1. Command Line Installation for oneAPI Intel® AI Analytics Toolkit
->```wget https://registrationcenter-download.intel.com/akdlm/irc_nas/19202/l_AIKit_p_2023.1.0.31760_offline.sh```
+File included for evaluation are 
+1. ```training_prediction.ipynb```
+2. ```predict.ipynb```<br>
 
->```    sudo sh ./l_AIKit_p_2023.1.0.31760_offline.sh```
+*These files will run automatically once the Flask application is started. To run them individually, make sure all the requirements mentioned in the **Intel Hackathon Application** have been installed*<br>
+To run the application, please navigate to the **Intel Hackathon Application** directory and follow the instructions attached. 
 
-    Step 2: From the console, locate the downloaded install file.
+On running the application on the terminal, the following commands should be printed.
+![runtime screenshot 1](./Intel%20Hackathon%20Application/terminal_outputs/start.jpeg)<br></br>
 
-    Step 3: Use the following command to launch the GUI Installer as the root.
->```$ sudo sh ./<installer>.sh```
+Model Imports should have a similar output
+![model imports 1](./Intel%20Hackathon%20Application/terminal_outputs/model.jpeg)<br></br>
 
-    Optionally, use use the following command to launch the GUI Installer as the current user.
->```$ sh ./<installer>.sh  ```
-
-    Step 4: Follow the instructions in the installer.
-   
-    Step 5: After installation, clone the current directory and install the required modules to run the code smoothly.
-
->```pip install -r requirements.txt```
-    
-    Step 6: Run the following command to run the build shell file for the 3DDFA_V2 facial feature extraction algorithm
->```sh build.sh```
-
-    Step 7: The code only needs to be ran on one single file. This can be done in two ways: 
->a. By running the notebook named ```website.ipynb``` **OR**<br></br>
->b. Run the code through the following command <br>
->```python3 website.py```
-
-
-**The Flask server should start and be accessible at http://localhost:5050/**
-
-
-    Step 8 :On accessing the webpage, you will be prompted to choose a video of the participant you want to evaluate the personality for. 
-
-    Step 9: Choose the example video already present in the videos directory or move a video that you want to evaluate for. 
-
-**Note: The video has to be present in the videos directory for the application to function properly. Do not include 'video' in the video name.** 
-
-    Step 10: The webpage will now take a few seconds to evaluate and show you the OCEAN and 'interview' values. 
-<br></br> 
-
+These outputs reaffirm the usage of oneAPI Intel® AI Analytics Toolkit for training and prediction of the Tensorflow models used. 
 
 ## Block Diagram 
-![Overall Design](./Design%20Drawings/High%20Level%20Design%20Block%20Diagram.jpeg)
+![Overall Design](./Intel%20Hackathon%20Application/Design%20Drawings/High%20Level%20Design%20Block%20Diagram.jpeg)
 
 
 ## System Overview 
