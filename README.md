@@ -6,17 +6,6 @@
 An automated personality recognition system can be helpful in various applications, such as recruitment, marketing, mental health diagnosis, and personalised content creation. Given it's importance, we develop a **multi-task multi-modal system** for automated personality recognition, trained on **Intel® Optimization for Tensorflow** through the **oneAPI Intel® AI Analytics Toolkit**, that evaluates job applicants using facial landmarks, language, tone, and other communication characteristics. The system provides OCEAN personality values and the likelihood of passing to the interview stage, helping employers evaluate candidates objectively and efficiently. The system assesses the Big five personality traits and determines the probability of qualifying for the interview round, providing a comprehensive behavioral assessment of job applicants.
 <br></br>
 
-## oneAPI Modules in-use
-
-1. Intel® Optimization for Tensorflow
-
-Optimized Tensorflow was used to train the Autokeras Multi-task Multi-modal models for OCEAN and interview predictions. 
-
-2. Intel® Optimization for PyTorch
-
-Optimized PyTorch was used for facial landmark extraction through the **3DDFA V2 algorithm**.
-<br></br>
-
 ## Evaluation
 
 We assume that the oneAPI Intel® AI Analytics Toolkit has been installed in your system. If so, the training and prediction modules will automatically use the Intel® Optimization for Tensorflow and Pytorch.
@@ -35,6 +24,17 @@ Model Imports should have a similar output
 ![model imports 1](./Intel%20Hackathon%20Application/terminal_outputs/model.jpeg)<br></br>
 
 These outputs reaffirm the usage of oneAPI Intel® AI Analytics Toolkit for training and prediction of the Tensorflow models used. 
+
+## oneAPI Modules in-use
+
+1. Intel® Optimization for Tensorflow
+
+Optimized Tensorflow was used to train the Autokeras Multi-task Multi-modal models for OCEAN and interview predictions. 
+
+2. Intel® Optimization for PyTorch
+
+Optimized PyTorch was used for facial landmark extraction through the **3DDFA V2 algorithm**.
+<br></br>
 
 ## Block Diagram 
 ![Overall Design](./Intel%20Hackathon%20Application/Design%20Drawings/High%20Level%20Design%20Block%20Diagram.jpeg)
